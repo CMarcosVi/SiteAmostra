@@ -1,24 +1,19 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site SPA</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>SPA com HTMLs separados</title>
 </head>
 <body>
     <nav>
-        <ul>
-            <li><a href="#" id="home">Início</a></li>
-            <li><a href="#" id="sobre">Sobre</a></li>
-            <li><a href="#" id="contato">Contato</a></li>
-        </ul>
+        <a href="#" id="home-link">Home</a>
+        <a href="#" id="about-link">Sobre</a>
     </nav>
 
-    <div id="conteudo">
-        <!-- O conteúdo carregado será inserido aqui -->
-    </div>
+    <!-- Container onde o conteúdo será carregado -->
+    <div id="content-container"></div>
 
-    <script src="script.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>

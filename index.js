@@ -1,34 +1,37 @@
-// script.js
-document.getElementById('home').addEventListener('click', function() {
-    carregarConteudo('home.html');
-});
-document.getElementById('sobre').addEventListener('click', function() {
-    carregarConteudo('sobre.html');
-});
-document.getElementById('contato').addEventListener('click', function() {
-    carregarConteudo('contato.html');
-});
+document.addEventListener("DOMContentLoaded", function () {
+    const homeLink = document.getElementById("home-link");
+    const aboutLink = document.getElementById("about-link");
+    const contentContainer = document.getElementById("content-container");
 
-function carregarConteudo(pagina) {
-    const conteudo = document.getElementById('conteudo');
-
-    // Carregar o conteúdo da página
-    fetch(pagina)
-        .then(response => response.text())
-        .then(html => {
-            conteudo.innerHTML = html;
-
-            // Atualizar o histórico do navegador sem recarregar a página
-            history.pushState({pagina: pagina}, '', pagina);
-        })
-        .catch(error => {
-            conteudo.innerHTML = `<p>Erro ao carregar a página: ${error.message}</p>`;
-        });
-}
-
-// Detectando navegação pelo botão voltar
-window.onpopstate = function(event) {
-    if (event.state) {
-        carregarConteudo(event.state.pagina);
+    // Função para carregar o conteúdo HTML de um arquivo
+    function loadContent(page) {
+        fetch(page)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro ao carregar o conteúdo');
+                }
+                return response.text();
+            })
+            .then(html => {
+                contentContainer.innerHTML = html;  // Substitui o conteúdo no container
+            })
+            .catch(error => {
+                console.error(error);
+                contentContainer.innerHTML = "<p>Erro ao carregar o conteúdo.</p>";
+            });
     }
-};
+
+    // Carregar a página inicial por padrão
+    loadContent('home.html');
+
+    // Eventos de clique para alternar entre as páginas
+    homeLink.addEventListener("click", function (event) {
+        event.preventDefault();
+        loadContent('home.html');  // Carrega a página Home
+    });
+
+    aboutLink.addEventListener("click", function (event) {
+        event.preventDefault();
+        loadContent('about.html');  // Carrega a página Sobre
+    });
+});
