@@ -1,4 +1,18 @@
 /* styles.css */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*navbar*/
+nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+}
+/*navbar*/
 body {
     font-family: Arial, sans-serif;
     margin: 0;

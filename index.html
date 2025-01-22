@@ -4,16 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SPA com HTMLs separados</title>
+    <link rel="stylesheet" href="./src/index.css">
 </head>
 <body>
-    <nav>
-        <a href="#" id="home-link">Home</a>
-        <a href="#" id="about-link">Sobre</a>
-    </nav>
+    <header>
+        <div>LOGO</div>
+        <nav>
+            <a href="#" id="home-link">Home</a>
+            <a href="#" id="about-link">Sobre</a>
+            <a href="#" id="home-link">Home</a>
+            <a href="#" id="about-link">contato</a>
+        </nav>
+        <button id="theme-toggle" aria-label="Alternar tema">
+            <!-- Sol SVG (representa modo claro) -->
+            <img id="sun-icon" src="assets/if-weather-3-2682848_90785.svg" alt="Sol" width="24" height="24" />
+    
+            <!-- Lua SVG (representa modo escuro) -->
+            <img id="moon-icon" src="assets/stars_moon_icon-icons.com_62501(1).svg" alt="Lua" width="24" height="24" style="display: none;" />
+        </button>
+    
+    </header>
+    
 
     <!-- Container onde o conteúdo será carregado -->
     <div id="content-container"></div>
 
-    <script src="index.js"></script>
+    <script src="./src/jquery-3.7.1.min.js"></script>
+    <script src="./src/index.js"></script>
 </body>
 </html>
