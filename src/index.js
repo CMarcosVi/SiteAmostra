@@ -1,48 +1,47 @@
 $(() => {
-    const $homeLink = $("#home-link");
-    const $aboutLink = $("#about-link");
-    const $contentContainer = $("#content-container");
-    const $themeToggle = $("#theme-toggle");
-    const $body = $("body");
-    const $sunIcon = $("#sun-icon");
-    const $moonIcon = $("#moon-icon");
+    const HOME_LINK = $("#home-link");
+    const ABAOUT_LINK = $("#about-link");
+    const CONTENT_CONTAINER = $("#content-container");
+    const THEME_TOGGLE = $("#theme-toggle");
+    const BODY = $("body");
+    const SUN_ICON = $("#sun-icon");
+    const MOON_ICON = $("#moon-icon");
 
-    // Alterna entre os temas (light e dark)
-    $themeToggle.on("click", function () {
-        $body.toggleClass("dark light");
+    THEME_TOGGLE.on("click", function () {
+        BODY.toggleClass("dark light");
 
-        // Mostra o ícone apropriado ao alternar
-        if ($body.hasClass("dark")) {
-            $sunIcon.hide();  // Esconde o ícone do sol
-            $moonIcon.show(); // Exibe o ícone da lua
+        if (BODY.hasClass("dark")) {
+            THEME_TOGGLE.css({"backgroundColor": "#fff"})
+            SUN_ICON.hide();  
+            MOON_ICON.show(); 
         } else {
-            $moonIcon.hide(); // Esconde o ícone da lua
-            $sunIcon.show();  // Exibe o ícone do sol
+            THEME_TOGGLE.css({"backgroundColor": "#000"})
+            MOON_ICON.hide(); 
+            SUN_ICON.show();  
         }
     });
-    // Função para carregar o conteúdo HTML de um arquivo
     function loadContent(page) {
         $.get(`pages/${page}`)
             .done(function (html) {
-                $contentContainer.html(html);  // Substitui o conteúdo no container
+                CONTENT_CONTAINER.html(html);
             })
             .fail(function () {
                 console.error("Erro ao carregar o conteúdo");
-                $contentContainer.html("<p>Erro ao carregar o conteúdo.</p>");
+                CONTENT_CONTAINER.html("<p>Erro ao carregar o conteúdo.</p>");
             });
     }
-
-    // Carregar a página inicial por padrão
     loadContent('home.html');
 
-    // Eventos de clique para alternar entre as páginas
-    $homeLink.on("click", function (event) {
+    HOME_LINK.on("click", function (event) {
+        HOME_LINK.addClass("active");
+        ABAOUT_LINK.removeClass("active");
         event.preventDefault();
-        loadContent('home.html');  // Carrega a página Home
+        loadContent('home.html');  
     });
-
-    $aboutLink.on("click", function (event) {
+    ABAOUT_LINK.on("click", function (event) {
+        ABAOUT_LINK.addClass("active");
+        HOME_LINK.removeClass("active");
         event.preventDefault();
-        loadContent('about.html');  // Carrega a página Sobre
+        loadContent('about.html');
     });
 });
