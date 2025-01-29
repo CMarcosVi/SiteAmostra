@@ -20,6 +20,30 @@ $(() => {
             SUN_ICON.show();  
         }
     });
+
+    // Obtém todos os botões do acordeão
+var accordions = document.querySelectorAll('.accordion');
+
+// Adiciona um evento de clique a cada botão
+accordions.forEach(function(accordion) {
+    accordion.addEventListener('click', function() {
+        // Alterna o "active" na seção clicada
+        this.classList.toggle('active');
+
+        // Obtém o painel associado
+        var panel = this.nextElementSibling;
+
+        // Se o painel estiver visível, esconda-o; caso contrário, mostre-o
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    });
+});
+
+
+
     function loadContent(page) {
         $.get(`pages/${page}`)
             .done(function (html) {
