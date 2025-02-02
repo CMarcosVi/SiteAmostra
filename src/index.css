@@ -164,6 +164,71 @@ nav a {
 }
 }
 /*----carrosel-automatico----*/
+/*animation*/
+.js .anime {
+    opacity: 0;
+    transform: translate3D(-50px, 0px, 0px);
+}
+
+.js .anime-init {
+    opacity: 1;
+    transform: translate3D(0px, 0px, 0px);
+    transition: .3s all ease;
+}
+.js2 .anime2 {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.js2 .anime-init2 {
+    opacity: 1;
+    transform: translateY(0);
+    transition: 0.5s ease-out;
+}
+
+.js3 .anime3 {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.js3 .anime-init3 {
+    opacity: 1;
+    transform: scale(1);
+    transition: 0.4s ease-out;
+}
+
+.js4 .anime4 {
+    opacity: 0;
+    transform: translateX(-100%);
+}
+
+.js4 .anime-init4 {
+    opacity: 1;
+    transform: translateX(0);
+    transition: 0.5s ease-out;
+}
+
+.js5 .anime5 {
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.js5 .anime-init5 {
+    opacity: 1;
+    transform: translateY(0);
+    animation: bounce 0.6s ease-out;
+}
+    .js6 .anime6 {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 0.5s ease-out;
+}
+
+.js6 .anime-init6 {
+    opacity: 1;
+    transform: translateY(0);
+}
+/*animation*/
 /*accordian*/
 
 .accordion-container {
