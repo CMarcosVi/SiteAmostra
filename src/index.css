@@ -107,7 +107,63 @@ nav a {
     width: 100%;
 }
 
+/*----carrosel-automatico----*/
+    
+.marquee {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+}
 
+.track {
+        display: flex;
+        animation: marquee 30s linear infinite;
+        gap: 20px;
+}
+
+.itemm {
+        flex: 0 0 auto;
+        /* Impede que os itens encolham ou expandam */
+        margin-right: 15px;
+}
+
+@keyframes marquee {
+    0% {
+            transform: translateX(0);
+    }
+
+    100% {
+            transform: translateX(-100%);
+    }
+}
+.marquee1 {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.track1 {
+    display: flex;
+    animation: marquee1 30s linear infinite;
+    gap: 20px;
+}
+
+.itemm1 {
+    flex: 0 0 auto;
+    /* Impede que os itens encolham ou expandam */
+    margin-right: 15px;
+}
+
+@keyframes marquee1 {
+0% {
+        transform: translateX(-100%);
+}
+
+100% {
+        transform: translateX(0%);
+}
+}
+/*----carrosel-automatico----*/
 /*accordian*/
 
 .accordion-container {
