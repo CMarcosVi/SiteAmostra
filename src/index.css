@@ -106,9 +106,49 @@ nav a {
     height: 100%;
     width: 100%;
 }
-
+.title-sec-1{
+    animation: animation-text-1 1s ease;
+}
+.subtitle-sec-1{
+    animation: animation-text-2 1s ease;
+}
+.text-sec-1{
+    animation: animation-text-3 1s ease;
+}
+@keyframes animation-text-1{
+    0%{
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+@keyframes animation-text-2{
+    0%{
+        transform: translateX(50px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+@keyframes animation-text-3{
+    0%{
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
 /*----carrosel-automatico----*/
-    
+#carrosel-automatico{
+    overflow: hidden;
+}
 .marquee {
         width: 100%;
         overflow: hidden;
@@ -164,6 +204,31 @@ nav a {
 }
 }
 /*----carrosel-automatico----*/
+/*----sec1----*/
+.section-type1,.section-type2{
+    margin-top: 70px;
+    margin-bottom: 70px;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+.section-type1 > h2{
+    margin-bottom:20px ;
+}
+.container-sec-type-1{
+    display: flex;
+}
+.img-sec-1{
+    padding: 0 15px;
+    width: 50%;
+    height: 200px;
+    background-color: #000;
+    border-radius: 10px;
+}
+.text-sec-type1{
+    padding: 0 15px;
+    width: 50%;
+}
+/*----sec1----*/
 /*animation*/
 .js .anime {
     opacity: 0;
@@ -173,18 +238,19 @@ nav a {
 .js .anime-init {
     opacity: 1;
     transform: translate3D(0px, 0px, 0px);
-    transition: .3s all ease;
+    transition: 1s all ease;
 }
-.js2 .anime2 {
+.js .anime2 {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translate3D(50px, 0px, 0px);
 }
 
-.js2 .anime-init2 {
+.js .anime-init2 {
     opacity: 1;
-    transform: translateY(0);
-    transition: 0.5s ease-out;
+    transform: translate3D(0px, 0px, 0px);
+    transition: 1s all ease;
 }
+
 
 .js3 .anime3 {
     opacity: 0;
@@ -216,52 +282,104 @@ nav a {
 .js5 .anime-init5 {
     opacity: 1;
     transform: translateY(0);
-    animation: bounce 0.6s ease-out;
+    animation: 0.6s ease-out;
+    transition: 0.5s ease-out;
 }
-    .js6 .anime6 {
+.js6 .anime6 {
     opacity: 0;
-    transform: translateY(50px);
     transition: 0.5s ease-out;
 }
 
 .js6 .anime-init6 {
     opacity: 1;
+}
+.js7 .anime7 {
+    opacity: 0;
+    transform: translateY(-50px);
+}
+
+.js7 .anime-init7 {
+    opacity: 1;
     transform: translateY(0);
+    animation: 0.6s ease-out;
+    transition: 0.5s ease-out;
 }
 /*animation*/
 /*accordian*/
 
 .accordion-container {
-  width: 300px;
-  margin: 50px auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+ /* acordeon */
+ #FAQ{
+    padding: 70px 0;
+ }
+ .title-faq{
+    text-align: center;
+    font-size: clamp(22px, 4vw, 52px);
+ }
+ .accordion {
+    cursor: pointer;
+    padding: 10px 20px;
+    width: 60%;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    font-size: 16px;
+    color: #fff;
+    text-align: left;
+    margin-top: 15px;
+    background: #000;
+    border-radius: 10px;
 }
 
-.accordion {
-  background-color: #f1f1f1;
-  color: #444;
-  cursor: pointer;
-  padding: 10px;
-  text-align: left;
-  width: 100%;
-  border: none;
-  outline: none;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
-}
-
+.active,
 .accordion:hover {
-  background-color: #ccc;
+    color: #999;
+}
+
+.btn-sec-1:hover {
+    transition: .5s !important;
+    background-color: #fff !important;
+    color: rgb(0, 176, 186) !important;
 }
 
 .panel {
-  padding: 0 10px;
-  display: none;
-  background-color: #f9f9f9;
-  border-left: 2px solid #ccc;
-  margin-bottom: 10px;
+    width: 60%;
+    margin: 0 auto;
+    font-size: 20px !important;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+    text-align: start;
+    border: 1px solid transparent;
+    color: #000;
+    background: transparent !important;
 }
 
-.panel p {
-  margin: 10px 0;
+.accordion-icon {
+    transition: transform 0.4s ease-out;
 }
+
+.rotated {
+    transform: rotate(180deg);
+}
+
+.panel.open {
+    padding: 15px 20px !important;
+}
+
+.panel>p {
+    font-weight: 300 !important;
+    margin: 15px 0;
+}
+
+
+
+
+    
 /*accordian*/
