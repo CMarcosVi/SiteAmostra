@@ -6,12 +6,26 @@
     box-sizing: border-box;
     font-family: "Montserrat", serif;
 }
+body::-webkit-scrollbar {
+    width: 7px;               /* width of the entire scrollbar */
+}
+  
+body::-webkit-scrollbar-track {
+    background: #000;        /* color of the tracking area */
+}
+  
+body::-webkit-scrollbar-thumb {
+    background-color: #39ff14;    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 1px solid #39ff14;  /* creates padding around scroll thumb */
+}
 header{
     display: flex;
     justify-content: space-around;
     position: absolute;
     align-items: center;
     width: 100%;
+    padding: 10px 0 ;
     top: 0;
 }
 #theme-toggle{
@@ -40,7 +54,7 @@ body {
 }
 
 nav {
-    background-color: #333;
+    background-color: transparent;
     color: white;
     padding: 10px;
     display: flex;
@@ -52,6 +66,14 @@ nav a {
     position: relative;
     text-decoration: none;
 }
+nav a:hover {
+    color: white;
+    position: relative;
+    text-decoration: none;
+    text-shadow: 15px -11px 0px #39ff14 ;
+    transition: .5s;
+}
+
 .nav-bar-navigation{
     display: flex;
     align-items: center;
@@ -61,7 +83,9 @@ nav a {
 #conteudo {
     padding: 20px;
 }
-
+.active{
+    color: #39ff14 !important;
+}
 .active::before{
     content:'' ;
     position: absolute;
@@ -70,7 +94,7 @@ nav a {
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: #fff;
+    background-color: #39ff14;
     animation: bar-subline .75s ease;
 }
 
@@ -107,13 +131,62 @@ nav a {
     width: 100%;
 }
 .title-sec-1{
+    font-size: 64px;
+    font-weight: 300;
     animation: animation-text-1 1s ease;
 }
 .subtitle-sec-1{
+    font-size: 54px;
+    font-weight: 300;
     animation: animation-text-2 1s ease;
 }
+.subtitle-sec-1 > strong{
+    font-weight: 300;
+    animation: animation-word-1 4s ease;
+    position: relative;
+    color: #39ff14;
+}
+.subtitle-sec-1 > strong::after{
+    content: '';
+    position: absolute;
+    top: 90%;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: #39ff14;
+    font-weight: 300;
+    animation: line-animation-1 4s ease;
+}
 .text-sec-1{
+    margin-top: 30px;
     animation: animation-text-3 1s ease;
+    position: relative;
+}
+.text-paragraph-reader{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-top: 20px;
+    padding-bottom: 5px;
+}
+.text-paragraph-reader::after{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    content: '';
+    position: absolute;
+    top: 90%;
+    left: 0;
+    height: 2px;
+    
+    width: 100%;
+    background-color: #39ff14;
+    font-weight: 300;
+    animation: line-animation-2 4s ease;
+    transform: translate(-50%);
+    left: 50%;
+    
 }
 @keyframes animation-text-1{
     0%{
@@ -122,6 +195,38 @@ nav a {
     }
     100%{
         transform: translateX(0px);
+        opacity: 1;
+    }
+}
+@keyframes line-animation-2{
+    0%{
+        width: 0;
+        left: 50%;
+        opacity: 0;
+    }
+    100%{
+        width: 100%;
+        opacity: 1;
+        left: 50%;
+    }
+}
+@keyframes line-animation-1{
+    0%{
+        width: 0;
+        opacity: 0;
+    }
+    100%{
+        width: 100%;
+        opacity: 1;
+    }
+}
+@keyframes animation-word-1{
+    0%{
+        color: #fff;
+        opacity: 0;
+    }
+    100%{
+        color: #39ff14;
         opacity: 1;
     }
 }

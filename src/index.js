@@ -6,6 +6,13 @@ $(() => {
     const BODY = $("body");
     const SUN_ICON = $("#sun-icon");
     const MOON_ICON = $("#moon-icon");
+    
+    const root = document.documentElement;
+    root.classList.add('js', 'js2', 'js3', 'js4', 'js5', 'js6', 'js7');
+
+    const boxTop = (el) => $(el).offset().top;
+    const windowHeight = $(window).height();
+    const offset = windowHeight - (windowHeight / 30);
     const ANIMATIONS = [
         { selector: ".anime", initClass: "anime-init" },
         { selector: ".anime2", initClass: "anime-init2" },
@@ -15,14 +22,23 @@ $(() => {
         { selector: ".anime6", initClass: "anime-init6" },
         { selector: ".anime7", initClass: "anime-init7" }
     ];
+    let index = 0;
 
-    const root = document.documentElement;
-    root.classList.add('js', 'js2', 'js3', 'js4', 'js5', 'js6', 'js7');
 
-    const boxTop = (el) => $(el).offset().top;
-    const windowHeight = $(window).height();
-    const offset = windowHeight - (windowHeight / 30);
+    const updateText = () => {
+        const TEXT_ELEMENT = $('.text-paragraph-reader');
+        const TEXT_READER = 'IA e Contabilidade Mudando Seu Futuro';
+        TEXT_ELEMENT.text(TEXT_READER.substring(0, index + 1));
+        index++;
+          
+        if (index < TEXT_READER.length) {
+            setTimeout(updateText, 175); 
+        }
+    }
 
+ const texts = $(".text");
+
+ 
     const animeScroll = () => {
         const documentTop = $(document).scrollTop();
         ANIMATIONS.forEach(function(animation) {
@@ -58,6 +74,15 @@ $(() => {
             .done(function(html) {
                 CONTENT_CONTAINER.html(html);
                 accordion(); 
+                setTimeout(updateText, 500); 
+                document.onmousemove = ev => {
+                    const MOVING = $(".moving")
+                    const positionX = (window.innerWidth / -90 - ev.x) / -70;
+                    const positionY = -ev.y / 100;
+                    MOVING.css("transform", `translate(${positionX}px, ${positionY}px)`);
+
+                }
+                
             })
             .fail(function() {
                 console.error("Erro ao carregar o conteúdo");
@@ -67,7 +92,7 @@ $(() => {
 
     const initialization = () => {
         loadContent('home.html'); 
-
+        setTimeout(updateText, 500);
         THEME_TOGGLE.on("click", () => {
             BODY.toggleClass("dark light");
 
@@ -95,9 +120,8 @@ $(() => {
             event.preventDefault();
             loadContent('about.html');
         });
-        $(document).ready(function() {
-            accordion();
-        });
+        
+        accordion();
         animeScroll();
         $(window).on('scroll', animeScroll);
     };
