@@ -6,6 +6,9 @@
     box-sizing: border-box;
     font-family: "Montserrat", serif;
 }
+body{
+    background-color: #222;
+}
 body::-webkit-scrollbar {
     width: 7px;               /* width of the entire scrollbar */
 }
@@ -21,12 +24,14 @@ body::-webkit-scrollbar-thumb {
 }
 header{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     position: absolute;
     align-items: center;
     width: 100%;
     padding: 10px 0 ;
     top: 0;
+    padding-left: 20%;
+    padding-right: 20%;
 }
 #theme-toggle{
     display: flex;
@@ -109,32 +114,69 @@ nav a:hover {
 
 /*Home*/
 #sec-1-home{
-    background-color: #000;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-image: radial-gradient(#2f2f2f, black);
+    background-position: bottom center;
+    background-size: 200% 200%;
+    border-radius: 0px 0px 30px 30px;
+    border-bottom: 2px solid #39ff14;
+    box-shadow: 0px -2px 13px 3px #000;
 }
 .container-sec-1-home{
     position: relative;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     text-align: center;
     height: 100%;
     width: 100%;
     color: #fff;
+    padding-left: 15%;
+    padding-right: 15%;
 }
 .home-background{
     height: 100%;
     width: 100%;
+}
+.btn-redirect{
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+}
+.btn-redirect > a{
+    position: absolute;
+    top: 0;
+    background-color: #000;
+    border-radius: 20px;
+    padding: 10px 50px;
+    border: 2px solid #39ff14;
+    text-transform: uppercase;
+    letter-spacing:2px;
+    cursor: pointer;
+    width: 300px;
+    transition: .5s;
+    animation: animation-text-3 1s ease;
+}
+.btn-redirect > a:hover{
+    position: absolute;
+    top: -5px;
+    border: 2px solid #000;
+    background-color: #fff !important;
+    color: #000 !important;
+    transition: .5s;
 }
 .title-sec-1{
     font-size: 64px;
     font-weight: 300;
     animation: animation-text-1 1s ease;
 }
+
 .subtitle-sec-1{
     font-size: 54px;
     font-weight: 300;
@@ -169,6 +211,8 @@ nav a:hover {
     position: relative;
     margin-top: 20px;
     padding-bottom: 5px;
+    width: 256px;
+    text-align: start;
 }
 .text-paragraph-reader::after{
     display: flex;
@@ -186,7 +230,6 @@ nav a:hover {
     animation: line-animation-2 4s ease;
     transform: translate(-50%);
     left: 50%;
-    
 }
 @keyframes animation-text-1{
     0%{
@@ -201,13 +244,13 @@ nav a:hover {
 @keyframes line-animation-2{
     0%{
         width: 0;
-        left: 50%;
+        left: 50% !important;
         opacity: 0;
     }
     100%{
         width: 100%;
         opacity: 1;
-        left: 50%;
+        left: 100% !important;
     }
 }
 @keyframes line-animation-1{
@@ -251,6 +294,14 @@ nav a:hover {
     }
 }
 /*----carrosel-automatico----*/
+.linha-logos{
+    border-top: 2px solid #39ff14;
+    background-color: #000 !important;
+}
+.linha-logos1{
+    border-bottom: 2px solid #39ff14;
+    background-color: #000 !important;
+}
 #carrosel-automatico{
     overflow: hidden;
 }
@@ -310,7 +361,7 @@ nav a:hover {
 }
 /*----carrosel-automatico----*/
 /*----sec1----*/
-.section-type1,.section-type2{
+.section-type1,.section-type2,.section-type3{
     margin-top: 70px;
     margin-bottom: 70px;
     margin-left: 20%;
@@ -318,6 +369,19 @@ nav a:hover {
 }
 .section-type1 > h2{
     margin-bottom:20px ;
+}
+.section-type3{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.container-sec-type-3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 .container-sec-type-1{
     display: flex;
