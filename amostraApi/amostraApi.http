@@ -1,0 +1,6 @@
+@amostraApi_HostAddress = http://localhost:5270
+
+GET {{amostraApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
