@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "HbJmmHrMNGvgA2ATauOrTOuIUqyC9hKwpg+9OCzUMG0=",
+  "Source": "amostraApi",
+  "BasePath": "_content/amostraApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
