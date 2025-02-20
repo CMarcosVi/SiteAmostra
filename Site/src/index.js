@@ -75,14 +75,43 @@ $(() => {
                 CONTENT_CONTAINER.html(html);
                 accordion(); 
                 setTimeout(updateText, 500); 
+                const animateElementEsquerda = document.querySelector('.animate-element-esquerda');
+                const animateElementDireita = document.querySelector('.animate-element-direita');
+
+                window.addEventListener('scroll', () => {
+                    // Captura a posição de rolagem da página
+                    const scrollY = window.scrollY;
+
+                    // Definir a quantidade de movimento (em pixels) e a opacidade
+                    const moveDistance = scrollY / 5; // Quanto mais rolar, mais o elemento se move
+                    const opacity = 1 - scrollY / 500; // A opacidade vai diminuindo com o scroll
+                    const moveLeft = scrollY > 0 ? -moveDistance : moveDistance; 
+                    const moveRight = scrollY > 0 ? moveDistance : -moveDistance;
+
+                    // Aplicando as transformações no elemento
+                    animateElementEsquerda.style.transform = `translateX(${moveLeft}px)`;
+                    animateElementEsquerda.style.opacity = Math.max(opacity, 0); // A opacidade nunca pode ser menor que 0
+                    animateElementDireita.style.transform = `translateX(${moveRight}px)`; // Movimento horizontal
+                    animateElementDireita.style.opacity = Math.max(opacity, 0); // A opacidade nunca pode ser menor que 0
+                });
                 document.onmousemove = ev => {
                     const MOVING = $(".moving")
+                    const MOVING_bg = $("#sec-1-home");
+                    const mouseCircle = document.querySelector('.mouse-circle');
+    
+                    // Posição do mouse
+                    const mouseX = ev.pageX;
+                    const mouseY = ev.pageY;
+                    mouseCircle.style.left = `${mouseX}px`;
+                    mouseCircle.style.top = `${mouseY}px`;
+                    const bgPosX = (ev.x / window.innerWidth) * 25;
+                    const bgPosY = (ev.y / window.innerHeight) * 25;
                     const positionX = (window.innerWidth / -90 - ev.x) / -70;
                     const positionY = -ev.y / 100;
                     MOVING.css("transform", `translate(${positionX}px, ${positionY}px)`);
+                    MOVING_bg.css("background-position", `${bgPosX}% ${bgPosY}%`);
 
-                }
-                
+                }                
             })
             .fail(function() {
                 console.error("Erro ao carregar o conteúdo");
